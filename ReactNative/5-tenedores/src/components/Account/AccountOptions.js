@@ -5,6 +5,7 @@ import { map } from "lodash";
 import { Modal } from "../../components";
 import { ChangeDisplayNameForm } from "./ChangeDisplayNameForm";
 import { ChangeDisplayEmailForm } from "./ChangeDisplayEmailForm";
+import { ChangeDisplayPassForm } from "./ChangeDisplayPassForm";
 
 export function AccountOptions(props) {
     const {onReload} = props;
@@ -22,7 +23,7 @@ export function AccountOptions(props) {
             setRenderComponent(<ChangeDisplayEmailForm onClose={onCloseOpenModal} onReload={onReload}/>);
         }
         if (key === "pass") {
-            setRenderComponent(<ChangeDisplayNameForm onClose={onCloseOpenModal} onReload={onReload}/>);
+            setRenderComponent(<ChangeDisplayPassForm onClose={onCloseOpenModal} />);
         }
 
         onCloseOpenModal();
