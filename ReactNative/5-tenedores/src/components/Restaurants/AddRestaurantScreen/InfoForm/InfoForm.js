@@ -15,7 +15,7 @@ export function InfoForm(props) {
     <View style={styles.content}>
       <Input 
       placeholder='Nombre del restaurante'
-      onChange={(text) => formik.setFieldValue("name",text)}
+      onChangeText={(text) => formik.setFieldValue("name",text)}
       errorMessage={formik.errors.name}
       />
       <Input 
@@ -23,32 +23,41 @@ export function InfoForm(props) {
       rightIcon={{
           type:"material-community",
           name:"map-marker-radius",
-          color:"#c2c2c2",
+          color:getColorIconMap(formik),
           onPress: onOpenCloseMap
       }}
-      onChange={(text) => formik.setFieldValue("address",text)}
+      onChangeText={(text) => formik.setFieldValue("address",text)}
       errorMessage={formik.errors.address}
       />
       <Input 
       placeholder='Telefono'
-      onChange={(text) => formik.setFieldValue("phone",text)}
+      onChangeText={(text) => formik.setFieldValue("phone",text)}
       errorMessage={formik.errors.phone}
       />
       <Input 
       placeholder='Email'
-      onChange={(text) => formik.setFieldValue("email",text)}
+      onChangeText={(text) => formik.setFieldValue("email",text)}
       errorMessage={formik.errors.email} 
       />
       <Input 
       placeholder='Descripción del restaurante'
       multiline={true}
       inputStyle={styles.textArea}
-      onChange={(text) => formik.setFieldValue("description",text)}
+      onChangeText={(text) => formik.setFieldValue("description",text)}
       errorMessage={formik.errors.description}
       />
       
     </View>
-    <MapForm show={showMap} close={onOpenCloseMap} />
+    <MapForm show={showMap} close={onOpenCloseMap} formik = {formik} />
     </>
   )
+}
+
+
+const getColorIconMap = (formik) => {
+  if (formik.errors.location) return "#ff0000";
+
+  if(formik.values.location) return "#00a680";
+
+  return "#c2c2c2";
 }

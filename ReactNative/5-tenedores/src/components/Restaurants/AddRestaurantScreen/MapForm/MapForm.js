@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import { Button } from "react-native-elements";
 import { Modal } from "../../../Shared";
 import * as Location from "expo-location";
 import Toast from "react-native-toast-message";
@@ -7,7 +8,7 @@ import MapView from "react-native-maps";
 import { styles } from './MapForm.styles';
 
 export function MapForm(props) {
-    const {show, close} = props;
+    const {show, close, formik} = props;
 
     const [location, setLocation] = useState({
         latitude: 0.001,
@@ -38,9 +39,12 @@ export function MapForm(props) {
         }) ();
     }, []);
     
+    const saveLocation = () =>{
+        formik.setFieldValue("location", location);
+        close();
+    }
   return (
       <Modal show={show} close={close}>
-          <View>
               <MapView 
               initialRegion={location} 
               showsUserLocation={true} 
@@ -49,7 +53,21 @@ export function MapForm(props) {
               >
                   <MapView.Marker draggable coordinate={location} />
               </MapView>
-          </View>
+              <View style={styles.mapActions}>
+                  <Button 
+                  title='Guardar' 
+                  containerStyle={styles.btnMapContainerSave} 
+                  buttonStyle={styles.btnMapSave}
+                  onPress={saveLocation}
+                  />
+                  
+                  <Button 
+                  title='Cerrar' 
+                  containerStyle={styles.btnMapContainerCancel} 
+                  buttonStyle={styles.btnMapCancel}
+                  onPress={close}
+                  />
+              </View>
       </Modal>
   )
 }
