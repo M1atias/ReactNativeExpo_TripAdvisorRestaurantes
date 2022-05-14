@@ -28,7 +28,7 @@ export function Info(props) {
   return (
     <ScrollView style={styles.content}>
       <Text style={styles.title}>Información sobre el restaurante</Text>
-      <Map location={restaurant.location} name={restaurant.name} />
+      <Map location={restaurant.location} />
       {map(listInfo, (item, index) =>(
           <ListItem key={index} bottomDivider>
               <Icon 
