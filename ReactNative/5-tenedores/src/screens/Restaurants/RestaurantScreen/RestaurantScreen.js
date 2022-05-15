@@ -4,7 +4,7 @@ import { styles } from "./RestaurantScreen.styles";
 import { doc,onSnapshot,collection,query,where,orderBy } from "firebase/firestore";
 import { db } from "../../../utils";
 import { Carousel,Loading } from "../../../components/Shared";
-import { Header,Info } from "../../../components/Restaurant";
+import { Header,Info,BtnReviewForm,Reviews } from "../../../components/Restaurant";
 
 export function RestaurantScreen(props) {
     const {route} = props;
@@ -25,9 +25,10 @@ export function RestaurantScreen(props) {
   return (
     <ScrollView style={styles.content} >
         <Carousel arrayImages={restaurant.images} width={width} height={250}  />
-
         <Header restaurant ={restaurant} />
         <Info  restaurant ={restaurant}/>
+        <BtnReviewForm idRestaurant={route.params.id} />
+        <Reviews idRestaurant={route.params.id}/>
     </ScrollView>
   )
 }
