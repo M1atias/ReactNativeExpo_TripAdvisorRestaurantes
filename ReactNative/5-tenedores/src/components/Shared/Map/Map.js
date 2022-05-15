@@ -5,13 +5,14 @@ import { styles } from "./Map.styles";
 import openMap from "react-native-open-maps";
 
 export function Map(props) {
-    const {location} = props;
+    const {location,name} = props;
 
     const openAppMap = () =>{
         openMap({
             latitude: location.latitude,
             longitude: location.longitude,
-            zoom:19
+            zoom:19,
+            query:name,
         });
     };
   return (
