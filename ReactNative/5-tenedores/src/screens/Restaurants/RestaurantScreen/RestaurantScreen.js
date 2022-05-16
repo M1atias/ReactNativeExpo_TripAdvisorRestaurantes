@@ -4,7 +4,7 @@ import { styles } from "./RestaurantScreen.styles";
 import { doc,onSnapshot,collection,query,where,orderBy } from "firebase/firestore";
 import { db } from "../../../utils";
 import { Carousel,Loading } from "../../../components/Shared";
-import { Header,Info,BtnReviewForm,Reviews } from "../../../components/Restaurant";
+import { Header,Info,BtnReviewForm,Reviews,BtnFavorite } from "../../../components/Restaurant";
 
 export function RestaurantScreen(props) {
     const {route} = props;
@@ -29,6 +29,7 @@ export function RestaurantScreen(props) {
         <Info  restaurant ={restaurant}/>
         <BtnReviewForm idRestaurant={route.params.id} />
         <Reviews idRestaurant={route.params.id}/>
+        <BtnFavorite idRestaurant={route.params.id}/>
     </ScrollView>
   )
 }

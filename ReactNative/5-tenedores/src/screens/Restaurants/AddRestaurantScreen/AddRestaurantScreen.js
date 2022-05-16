@@ -24,7 +24,6 @@ export function AddRestaurantScreen() {
         const newData = formValue;
         newData.id = uuid()
         newData.createdAt = new Date();
-        console.log(newData); 
         
         await setDoc(doc(db,"restaurants", newData.id), newData);
 

@@ -30,7 +30,6 @@ export function BtnReviewForm(props) {
             );
             onSnapshot(q,(snapshot)=>{
                 if (size(snapshot.docs) > 0) setHasReview(true);
-                console.log(snapshot.docs);
             });
         }
     }, [hasLogged])
