@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.example.myapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -36,6 +37,8 @@
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
       ]
-    ]
+    ],
+    "description": "",
+    "githubUrl": "https://github.com/M1atias/ReactNativeExpo_TripAdvisorRestaurantes/tree/main/ReactNative/5-tenedores"
   }
 }
